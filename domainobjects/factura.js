@@ -7,6 +7,20 @@ module.exports = {
             return _persona;
         }(persona);
         
+        this.monto = function(_monto) {
+            if(!(_monto instanceof Monto)) {
+                throw new Error("Monto no permitido");
+            }
+            return _monto;
+        }(monto);
+        
+        this.fecha = function(_fecha) {
+            if(!(_fecha instanceof Date)) {
+                throw new Error("Fecha no permitida");
+            }
+            return _fecha;
+        }(fecha);
+        
         Object.freeze(this);
     }
 }
