@@ -6,6 +6,7 @@ module.exports = {
             }
             return _nombre;
         }(nombre);
+        
         this.nit = function testNit(_nit){
             if (!Number.isInteger(_nit) || (_nit <= 0)){
                 throw new Error("NIT no debe ser menor a 0");
@@ -13,6 +14,16 @@ module.exports = {
             return _nit;
         }(nit);
         
+        this.equals = function(persona) {
+            var isPersona = persona instanceof Persona;
+            if(isPersona && persona.nombre == this.nombre && persona.nit == this.nit) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        
+        Object.freeze(this);
     }
 }
 
