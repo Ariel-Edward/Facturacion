@@ -21,6 +21,13 @@ module.exports = {
             return _fecha;
         }(fecha);
         
+        this.estado = function(_estado) {
+            if(!(_estado instanceof Estado)) {
+                throw new Error("Estado no permitido");
+            }
+            return _estado;
+        }(estado);
+        
         Object.freeze(this);
     }
 }
