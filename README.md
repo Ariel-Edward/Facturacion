@@ -33,17 +33,27 @@ npm install
 Para ejecutar el servidor de la API debe ejecutar en la carpeta raiz del proyecto el siguiente comando:
 
 ```
-node server.js
+npm start
 ```
 
 ## Modulos desarrollados
-En el presente proyecto se han desarrollado los modulos de Facturacion y Personas
+En el presente proyecto se han desarrollado los modulos de Personas
 
-### Modulo de facturacion
-Para probar el funcionamiento debe ingresar a http://localhost:3000/facturas/
 
 ### Modulo de personas
 Para probar el funcionamiento debe ingresar a http://localhost:3000/personas/
+
+#### Agregar personas
+
+Con postman, usando el metodo POST se puede enviar un objeto JSON que contenga nit y nombre a la direccion http://localhost:3000/personas/
+
+#### Consultar personas
+
+Con postman, usando el metodo GET se puede ingresar a la direccion http://localhost:3000/personas/{NIT}, en donde {NIT} se reemplaza con el nit de la persona
+
+#### Listar personas
+
+Con postman, usando el metodo GET se puede ingresar a la direccion http://localhost:3000/personas/, el cual retorna la lista de todas las personas registradas
 
 ## Diagrama
 ![Diagrama de los modulos](doc/diagrama.png?raw=true "Diagrama event storming")
