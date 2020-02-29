@@ -7,20 +7,20 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/persona/:nombre/:nit', function (req, res) {
+app.get('/personas/:nombre/:nit', function (req, res) {
     const persona = require('./domainobjects/persona.js');
     var p = new persona.Persona(req.params.nombre, req.params.nit);
     res.send(p);
 });
 
 
-app.get('/moneda/:nombre', function (req, res) {
+app.get('/monedas/:nombre', function (req, res) {
     const moneda = require('./domainobjects/moneda.js');
     var m = new moneda.Moneda(req.params.nombre);
     res.send(m);
 });
 
-app.get('/monto/:moneda/:valor', function (req, res) {
+app.get('/montos/:moneda/:valor', function (req, res) {
     const moneda = require('./domainobjects/moneda.js');
     var m = new moneda.Moneda(req.params.moneda);
     const monto = require('./domainobjects/monto.js');
