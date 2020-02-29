@@ -1,32 +1,60 @@
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
-    res.send('API Facturacion 1.0');
+app.get('/', function (request, response) {
+    response.send('API Facturacion 1.0');
 });
 
 
-app.get('/personas/:nombre/:nit', function (req, res) {
+app.get('/personas/:nombre/:nit', function (request, response) {
     const persona = require('./domainobjects/persona.js');
-    var p = new persona.Persona(req.params.nombre, req.params.nit);
-    res.send(p);
+    var p = new persona.Persona(request.params.nombre, request.params.nit);
+    response.send(p);
+});
+
+app.post('/personas/', function (request, response) {
+    const mPersona = require('./domainobjects/persona.js');
+    var persona = new mPersona.Persona(request.body.nombre, request.body.nit);
+    
+    const mcPersonas = require('./controllers/personas.js');
+    var cpersonas = new mcPersonas.Personas();
+    var result = cpersonas.save(persona);
+    response.send(result);
+});
+
+app.get('/personas/', function (request, response) {
+    const mcPersonas = require('./controllers/personas.js');
+    var cpersonas = new mcPersonas.Personas();
+    var result = cpersonas.list();
+    response.send(result);
+});
+
+app.get('/personas/:nit', function (request, response) {
+    const mcPersonas = require('./controllers/personas.js');
+    var cpersonas = new mcPersonas.Personas();
+    var result = cpersonas.get(request.params.nit);
+    response.send(result);
 });
 
 
-app.get('/monedas/:nombre', function (req, res) {
+app.get('/monedas/:nombre', function (request, response) {
     const moneda = require('./domainobjects/moneda.js');
-    var m = new moneda.Moneda(req.params.nombre);
-    res.send(m);
+    var m = new moneda.Moneda(request.params.nombre);
+    response.send(m);
 });
 
-app.get('/montos/:moneda/:valor', function (req, res) {
+
+app.get('/montos/:moneda/:valor', function (request, response) {
     const moneda = require('./domainobjects/moneda.js');
-    var m = new moneda.Moneda(req.params.moneda);
+    var m = new moneda.Moneda(request.params.moneda);
     const monto = require('./domainobjects/monto.js');
-    var mnt = new monto.Monto(req.params.valor, m);
-    res.send(mnt);
+    var mnt = new monto.Monto(request.params.valor, m);
+    response.send(mnt);
 });
+
 
 console.log("Servidor listo en http://localhost:3000");
 

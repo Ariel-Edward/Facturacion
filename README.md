@@ -41,6 +41,9 @@ Para probar el funcionamiento debe ingresar a http://localhost:3000/facturas/
 ### Modulo de personas
 Para probar el funcionamiento debe ingresar a http://localhost:3000/personas/
 
+## Diagrama
+![Diagrama de los modulos](docs/diagrama.png?raw=true "Diagrama event storming")
+
 ## Analisis de la estructura del proyecto
 
 ```
