@@ -8,8 +8,11 @@
         "client",
         "browser"
     ],
-    "author": "vluis",
-    "contributors": [],
+    "author": "SOE-students",
+    "contributors": [
+        "Sergio Edward Rios Cruz",
+        "Luis Ariel Vega Soliz"
+    ],
     "dependencies": {
         "express": "^4.17.1",
         "sqlite3": "^4.1.1"
