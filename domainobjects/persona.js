@@ -8,6 +8,7 @@ module.exports = {
         }(nombre);
         
         this.nit = function testNit(_nit){
+            _nit = Number.parseInt(_nit);
             if (!Number.isInteger(_nit) || (_nit < 0)){
                 throw new Error("NIT no debe ser menor a 0");
             }

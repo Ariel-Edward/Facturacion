@@ -1,4 +1,3 @@
-
 module.exports = {
     Moneda: function (nombre) {
         var MONEY_VALUES = {
