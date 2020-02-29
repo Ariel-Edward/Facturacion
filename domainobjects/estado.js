@@ -4,6 +4,7 @@ module.exports = {
         var STATUS_VALUES = {
             "Emitida": "E", "Anulada": "A", "Entregada": "N", "Revertida": "R",  "Declarada": "D",
         };
+
         this.nombre = function testNombre(_nombre) {
             var val = STATUS_VALUES[_nombre];
             if (!val) {
