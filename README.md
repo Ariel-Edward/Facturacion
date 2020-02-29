@@ -23,7 +23,7 @@ Puede descargar el proyecto desde: https://github.com/Ariel-Edward/Facturacion/a
 
 ### Instale las dependencias del proyecto
 
-Luego de escargar y descomprimir, abra una consola, muevase hacia la carpeta del proyecto y ejecute el siguiente comando:
+Luego de descargar y descomprimir, abra una consola, muevase hacia la carpeta del proyecto y ejecute el siguiente comando:
 
   `npm install`
 
