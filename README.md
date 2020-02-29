@@ -44,7 +44,7 @@ Para probar el funcionamiento debe ingresar a http://localhost:3000/personas/
 ### Analisis de la estructura del proyecto
 
 ```
-app 
+Facturacion 
  └ domainobjects                    → Objetos del dominio (Patrón ValueObject)
     └ estado.js                     → Estados posibles de los objetos
     └ factura.js                    → Clases de las facturas
