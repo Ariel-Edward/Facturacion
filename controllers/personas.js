@@ -1,10 +1,5 @@
 const mPersona = require('../domainobjects/persona.js');
 
-function sleep(seconds){
-    var waitUntil = new Date().getTime() + seconds*1000;
-    while(new Date().getTime() < waitUntil) true;
-}
-
 
 module.exports = {
     Personas: function () {
@@ -30,7 +25,6 @@ module.exports = {
         };
 
         this.get = function (nit) {
-            //global.result = {};
             var sql = "SELECT nit,nombre FROM persona WHERE nit = ?";
             _db.get(sql, [nit], function(err, row) {
                 if (err) {
@@ -46,7 +40,6 @@ module.exports = {
 
         this.save = function (persona) {
             if(!(persona instanceof mPersona.Persona)) {
-                //throw new Error("Persona no permitida");
                 return false;
             }
             var stmt = _db.prepare("INSERT OR IGNORE INTO persona VALUES (?,?)");

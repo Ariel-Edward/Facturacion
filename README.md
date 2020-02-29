@@ -25,12 +25,16 @@ Puede descargar el proyecto desde: https://github.com/Ariel-Edward/Facturacion/a
 
 Luego de descargar y descomprimir, abra una consola, muevase hacia la carpeta del proyecto y ejecute el siguiente comando:
 
-  `npm install`
+```
+npm install
+```
 
 ## Ejecutar servicios
 Para ejecutar el servidor de la API debe ejecutar en la carpeta raiz del proyecto el siguiente comando:
 
-  `node server.js `
+```
+node server.js
+```
 
 ## Modulos desarrollados
 En el presente proyecto se han desarrollado los modulos de Facturacion y Personas
@@ -42,12 +46,18 @@ Para probar el funcionamiento debe ingresar a http://localhost:3000/facturas/
 Para probar el funcionamiento debe ingresar a http://localhost:3000/personas/
 
 ## Diagrama
-![Diagrama de los modulos](docs/diagrama.png?raw=true "Diagrama event storming")
+![Diagrama de los modulos](doc/diagrama.png?raw=true "Diagrama event storming")
 
 ## Analisis de la estructura del proyecto
 
 ```
 Facturacion 
+ └ controllers                      → Controladores del dominio (Patrón Repository)
+    └ persona.js                    → Controlador de personas a las que se hacen las facturas
+ └ data                             → Folder de las bases de datos
+    └ data.db                       → Base de datos principal
+ └ doc                              → Folder de los diagramas del sistema
+    └ diagrama.png                  → Diagrama del Eventstorming del sistema
  └ domainobjects                    → Objetos del dominio (Patrón ValueObject)
     └ estado.js                     → Estados posibles de los objetos
     └ factura.js                    → Clases de las facturas
