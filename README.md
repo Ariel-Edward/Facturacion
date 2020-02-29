@@ -1,6 +1,17 @@
 # Facturacion
 segundo practico del sexto modulo de la Maestria MDEIS
 
+## Guia de inicio rápido (< 2mn)
+
+```
+git clone https://github.com/Ariel-Edward/Facturacion.git
+cd Facturacion
+npm install
+node server.js
+```
+
+Luego, en el navegador web abrir [http://localhost:3000/](http://localhost:3000/).
+
 ## Requerimientos
 Para poder ejecutar el proyecto se necesita tener instalado NodeJS
 
@@ -16,7 +27,7 @@ Luego de escargar y descomprimir, abra una consola, muevase hacia la carpeta del
 
   `npm install`
 
-## Inicio rápido
+## Ejecutar servicios
 Para ejecutar el servidor de la API debe ejecutar en la carpeta raiz del proyecto el siguiente comando:
 
   `node server.js `
