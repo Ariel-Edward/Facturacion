@@ -41,7 +41,7 @@ Para probar el funcionamiento debe ingresar a http://localhost:3000/facturas/
 ### Modulo de personas
 Para probar el funcionamiento debe ingresar a http://localhost:3000/personas/
 
-### Analisis de la estructura del proyecto
+## Analisis de la estructura del proyecto
 
 ```
 Facturacion 
