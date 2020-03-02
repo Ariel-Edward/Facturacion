@@ -4,6 +4,13 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+function listener(responder){
+    this.listen = function(list){
+        responder.send(list);
+    };
+    return this;
+}
+
 app.get('/', function (request, response) {
     response.send('API Facturacion 1.0');
 });
@@ -28,15 +35,15 @@ app.post('/personas/', function (request, response) {
 app.get('/personas/', function (request, response) {
     const mcPersonas = require('./controllers/personas.js');
     var cpersonas = new mcPersonas.Personas();
-    var result = cpersonas.list();
-    response.send(result);
+    cpersonas.addReadyListener(listener(response));
+    cpersonas.list();
 });
 
 app.get('/personas/:nit', function (request, response) {
     const mcPersonas = require('./controllers/personas.js');
     var cpersonas = new mcPersonas.Personas();
-    var result = cpersonas.get(request.params.nit);
-    response.send(result);
+    cpersonas.addReadyListener(listener(response));
+    cpersonas.get(request.params.nit);
 });
 
 

@@ -6,6 +6,20 @@ module.exports = {
 
         const sqlite3 = require('sqlite3').verbose();
         var _db = new sqlite3.Database('./data/data.db');
+        
+        var listeners = {readyListeners: []};
+        
+        this.addReadyListener = function (listener){
+            listeners.readyListeners[listeners.readyListeners.length] = listener;
+        }
+        
+        function _notifyReady(data){
+            for (var i = 0; i < listeners.readyListeners.length; i++) {
+                listeners.readyListeners[i].listen(data);
+            }
+        }
+        
+        this.notifyReady = _notifyReady;
 
         this.list = function () {
             var sql = "SELECT nit,nombre FROM persona";
@@ -13,15 +27,13 @@ module.exports = {
                 if (err) {
                     return console.error(err.message);
                 }
+                resultlist = [];
                 for (var i = 0; i < rows.length; i++) {
-                    if (i == 0){
-                        global.resultlist = [];
-                    }
                     row = rows[i];
-                    global.resultlist[global.resultlist.length] = new mPersona.Persona(row.nombre, row.nit);
+                    resultlist[resultlist.length] = new mPersona.Persona(row.nombre, row.nit);
                 }
+                _notifyReady(resultlist);
             });
-            return global.resultlist;
         };
 
         this.get = function (nit) {
@@ -30,12 +42,12 @@ module.exports = {
                 if (err) {
                     return console.error(err.message);
                 }
-                global.result = (row
+                result = (row
                     ? new mPersona.Persona(row.nombre, row.nit)
                     : {});
+                _notifyReady(result);
 
             });
-            return global.result;
         };
 
         this.save = function (persona) {
